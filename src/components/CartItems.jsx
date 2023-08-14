@@ -6,20 +6,32 @@ import { CurrFormater } from "../utils/CurrFormater";
 const CartItems = ({ id, quant }) => {
   const { removeItems } = useContext(CartContext);
   const ite = fileContent.find((i) => i.id === id);
-  if (ite === null) return null;
+  if (ite === undefined) return null;
+  // if (!ite) {
+  //   return <div>Item not found</div>;
+  // }
+
   return (
-    <>
-      <img className="w-32 h-32 object-cover" src={ite.images} alt="" />
-      {ite.title}
-      {quant >= 1 && <span> x {quant}</span>}
-      <br />
-      {CurrFormater(ite.price)}
-      <br />
-      {CurrFormater(ite.price * quant)}
-      <br />
-      <button onClick={()=>removeItems(ite.id)}>x</button>
-    </>
+    <div className=" my-4">
+      <div className="flex">
+        <img className="w-32 h-32 rounded-lg object-cover" src={ite.images} alt="" />
+        <div className="mx-4">
+          {/* <div className="flex justify-around"> */}
+          <span className="mr-4">{ite.title}</span>
+          <button className="border text-white rounded-md bg-red-500 px-1" onClick={()=>removeItems(ite.id)}>x</button>
+          {/* </div> */}
+          <br />
+          {CurrFormater(ite.price)}
+          {quant >= 1 && <span> x {quant}</span>}
+          <br />
+          {CurrFormater(ite.price * quant)}
+          <br />
+        </div>
+      </div>
+    </div>
   );
 };
 
 export default CartItems;
+
+

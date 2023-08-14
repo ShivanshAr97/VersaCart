@@ -4,9 +4,12 @@ import { ShoppingCartProvider } from "./context/CartContext";
 
 function App() {
   return (
+    
     <ShoppingCartProvider>
-      <Navbar/>
-      <DataItems />
+      <div className=" mx-12">
+        <Navbar/>
+        <DataItems />
+      </div>
     </ShoppingCartProvider>
   );
 }

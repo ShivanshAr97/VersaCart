@@ -18,19 +18,21 @@ export default function StoreItem({
   return (
     <div>
       <div>
-        <img className="w-40 h-40 object-cover" src={images} alt="" />
-        {title}
-        {CurrFormater(price)}
+        <img className="w-40 mx-auto rounded-lg h-40 object-cover" src={images} alt="" />
+        <div className="flex justify-between my-2">
+          <span>{title}</span>
+          <span>{CurrFormater(price)}</span>
+        </div>
         {quant === 0 ? (
-          <button onClick={()=>incItems(id)}>Add new item</button>
+          <button className="border px-4 py-1 flex mx-auto my-2 rounded-lg bg-green-600 text-white" onClick={()=>incItems(id)}>Add new item</button>
         ) : (
-          <div className="flex flex-col">
-            <div className="flex">
-              <button onClick={()=>incItems(id)}>+</button>
-              {quant}
+          <div className="flex justify-between my-2">
+            <div className="flex items-center align-middle">
+              <button className="" onClick={()=>incItems(id)}>+</button>
+              <span className="border mx-2 px-1">{quant}</span>
               <button onClick={()=>decItems(id)}>-</button>
             </div>
-            <button onClick={()=>removeItems(id)}>Delete</button>
+            <button className="border px-4 py-0.5 rounded-lg bg-red-500 text-white" onClick={()=>removeItems(id)}>Delete</button>
           </div>
         )}
       </div>

@@ -19,13 +19,14 @@ const Cart = ({ isOpen }) => {
           show={isOpen}
           className="fixed inset-0 backdrop:blur-md bg-opacity-30 flex justify-end bg-black"
         >
-          <div className="bg-white w-[30%] " onClick={handleModalClick}>
-            <h1 className="mx-auto flex text-2xl font-bold mt-4 justify-center">
+          <div className="bg-white w-[35%] pl-4 overflow-y-auto" onClick={handleModalClick} >
+            <h1 className="mx-auto flex text-2xl font-bold mt-2 border-b-2 justify-center">
               Cart
             </h1>
             {items.map((item) => (
               <CartItems key={item.id} {...item} />
             ))}
+            <div className="fixed bottom-0 text-2xl font-bold bg-white w-[30%]">
             Total:
             {CurrFormater(
               items.reduce((total, cartItem) => {
@@ -33,6 +34,7 @@ const Cart = ({ isOpen }) => {
                 return total + (item?.price || 0) * cartItem.quant;
               }, 0)
             )}
+            </div>
           </div>
         </div>
       )}

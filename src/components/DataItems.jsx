@@ -4,9 +4,9 @@ import StoreItem from './StoreItem';
 
 export default function DataItems() {
   return (
-    <ul>
+    <ul className='grid grid-cols-3'>
       {fileContent.map((item) => (
-        <li key={item.id}>
+        <li className='border p-2 m-2 rounded-lg' key={item.id}>
           <StoreItem {...item} />
         </li>
       ))}
