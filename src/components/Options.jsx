@@ -1,11 +1,14 @@
 import React from 'react'
 import { useShoppingCart } from '../context/CartContext'
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
 export default function Options() {
   return (
-    <div className='flex flex-col text-lg w-32 ml-4'>
+    <div className='flex flex-col text-lg w-32 mr-6 -ml-4'>
         <br />
-        Sort
+        <p className='text-xl font-bold my-4'>Filters</p>
+
+        <p className='my-1 font-semibold'>Sort</p>
         <div>
             <input type="radio" id="ascending" name="order" value="Asc"/>
             <label htmlFor="ascending">Ascending</label>
@@ -14,23 +17,21 @@ export default function Options() {
             <input type="radio" id="descending" name="order" value="Desc"/>
             <label htmlFor="descending">Descending</label>
         </div>
-        <br />
+
+        <p className='mt-4 font-semibold'>Price Range</p>
         <div>
-            <label htmlFor="vol">Price Range</label>
             <input type="range" id="vol" name="vol" min="0" max="50"/>
         </div>
 
-        <br />
-        Rating
+        <p className='mt-4 mb-2 font-semibold'>Rating</p>
         <div className='flex'>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>5</p>
+            <p className='cursor-pointer'><AiOutlineStar/></p>
+            <p className='cursor-pointer mx-1'><AiOutlineStar/></p>
+            <p className='cursor-pointer mx-1'><AiOutlineStar/></p>
+            <p className='cursor-pointer mx-1'><AiOutlineStar/></p>
+            <p className='cursor-pointer mx-1'><AiOutlineStar/></p>
         </div>
-
-        <button>clear filters</button>
+        <button className='bg-red-500 py-1 my-4 text-lg rounded-md capitalize text-white'>clear filters</button>
     </div>
   )
 }

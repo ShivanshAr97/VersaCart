@@ -6,7 +6,7 @@ export default function DataItems() {
   return (
     <ul className='grid grid-cols-3 mx-5'>
       {fileContent.map((item) => (
-        <li className=' w-[24rem] border p-2 m-2 mx-4 rounded-lg' key={item.id}>
+        <li className=' w-[22rem] border p-2 m-2 mx-4 rounded-lg' key={item.id}>
           <StoreItem {...item} />
         </li>
       ))}

@@ -7,7 +7,7 @@ function App() {
   return (
     
     <ShoppingCartProvider>
-      <div className=" mx-8 border">
+      <div className=" mx-12">
         <Navbar/>
         <div className="flex">
           <Options/>
