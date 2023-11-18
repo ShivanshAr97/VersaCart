@@ -17,9 +17,8 @@ const CartItems = ({ id, quant }) => {
         <img className="w-32 h-32 rounded-lg object-cover" src={ite.images} alt="" />
         <div className="mx-4">
           {/* <div className="flex justify-around"> */}
-          <span className="mr-4">{ite.title}</span>
-          <button className="border text-white rounded-md bg-red-500 px-1" onClick={()=>removeItems(ite.id)}>x</button>
-          {/* </div> */}
+          <span className="mr-4 font-bold">{ite.title}</span>
+          <button className="border text-white rounded-full bg-red-500 px-[0.4rem] " onClick={()=>removeItems(ite.id)}>x</button>
           <br />
           {CurrFormater(ite.price)}
           {quant >= 1 && <span> x {quant}</span>}

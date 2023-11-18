@@ -18,7 +18,7 @@ export default function StoreItem({
   return (
     <div>
       <div>
-        <img className="w-40 mx-auto rounded-lg h-40 object-cover" src={images} alt="" />
+        <img className="w-60 mx-auto rounded-lg h-40 object-cover" src={images} alt="" />
         <div className="flex justify-between my-2">
           <span>{title}</span>
           <span>{CurrFormater(price)}</span>
