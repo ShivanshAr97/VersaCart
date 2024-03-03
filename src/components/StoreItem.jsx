@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { CurrFormater } from "../utils/CurrFormater";
 import { useContext } from "react";
 import {CartContext} from "../context/CartContext";
 import { FaCameraRetro } from "react-icons/fa";
+import Modal from "./Modal";
+import ThreeD from "./ThreeD";
 
 export default function StoreItem({
   id,
@@ -15,11 +17,44 @@ export default function StoreItem({
   updatedAt,
 }) {
   const {getItems, incItems, decItems, removeItems} = useContext(CartContext);
+
   const quant = getItems(id);
+
+  const [open, setOpen] = useState(false)
+  const [three, setThree] = useState(false)
+  const openModal=()=>{
+    setThree(!three)
+  }
+
   return (
     <div>
+
+
+
+<Modal open={open} onClose={() => setOpen(false)}>
+        <div className="text-center w-56">
+          <div className="mx-auto my-4 w-48">
+          <img className="w-60 mx-auto rounded-lg h-40 object-cover" src={images} alt="" />
+            <p className="text-sm text-gray-500">
+              Are you sure you want to delete this item?
+            </p>
+          </div>
+          <div className="flex gap-4">
+            <button className="btn btn-danger w-full">Delete</button>
+            <button
+              className="btn btn-light w-full"
+              onClick={() => setOpen(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </Modal>
       <div className="relative">
+      {three && <ThreeD/>}
+      <button onClick={() => setOpen(true)}>
         <img className="w-60 mx-auto rounded-lg h-40 object-cover" src={images} alt="" />
+      </button>
         <div className="flex justify-between my-2">
           <span>{title}</span>
           <span>{CurrFormater(price)}</span>
@@ -27,7 +62,7 @@ export default function StoreItem({
         {quant === 0 ? (
           <>
           <button className="border px-4 py-1 flex mx-auto my-2 rounded-lg bg-green-600 text-white" onClick={()=>incItems(id)}>Add new item</button>
-          <button className="absolute top-0"><FaCameraRetro/></button>
+          <button onClick={openModal} className="absolute top-0"><FaCameraRetro/></button>
           </>
           
         ) : (
@@ -38,10 +73,11 @@ export default function StoreItem({
               <button onClick={()=>decItems(id)}>-</button>
             </div>
             <button className="border px-4 py-0.5 rounded-lg bg-red-500 text-white" onClick={()=>removeItems(id)}>Delete</button>
-            <button className="absolute top-0"><FaCameraRetro/></button>
+            <button onClick={openModal} className="absolute top-0"><FaCameraRetro/></button>
           </div>
         )}
       </div>
+      
     </div>
   );
 }
