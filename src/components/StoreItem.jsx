@@ -62,11 +62,11 @@ const StoreItem=({
         </Suspense>
         <Environment preset='sunset'/>
       </Canvas>
-  ):""}
-      {/* <Three/> */}
+  ):
       <button onClick={() => setOpen(true)}>
         <img className="w-60 mx-auto rounded-lg h-40 object-cover" src={images} alt="" />
       </button>
+        }
         <div className="flex justify-between my-2">
           <span>{title}</span>
           <span>{CurrFormater(price)}</span>
