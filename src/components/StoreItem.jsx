@@ -1,14 +1,12 @@
-import React, { useState,Suspense } from "react";
+import React, { useState } from "react";
 import { CurrFormater } from "../utils/CurrFormater";
 import { useContext } from "react";
 import {CartContext} from "../context/CartContext";
 import { FaCameraRetro } from "react-icons/fa";
 import Modal from "./Modal";
-import { Canvas } from '@react-three/fiber'
-import { ContactShadows, Environment, OrbitControls } from '@react-three/drei'
-import Apple from '../../public/Apple'
+import ThreeD from "./ThreeD";
 
-const StoreItem=({
+export default function StoreItem({
   id,
   title,
   price,
@@ -17,7 +15,7 @@ const StoreItem=({
   creationAt,
   category,
   updatedAt,
-})=> {
+}) {
   const {getItems, incItems, decItems, removeItems} = useContext(CartContext);
 
   const quant = getItems(id);
@@ -53,17 +51,7 @@ const StoreItem=({
         </div>
       </Modal>
       <div className="relative">
-      {three ? (
-      <Canvas className=''>
-        <Suspense fallback={null}>
-          <OrbitControls enableZoom={false}/>
-          <ambientLight/>
-          <Apple scale={5}/>
-        </Suspense>
-        <Environment preset='sunset'/>
-      </Canvas>
-  ):""}
-      {/* <Three/> */}
+      {three && <ThreeD/>}
       <button onClick={() => setOpen(true)}>
         <img className="w-60 mx-auto rounded-lg h-40 object-cover" src={images} alt="" />
       </button>
@@ -93,5 +81,3 @@ const StoreItem=({
     </div>
   );
 }
-
-export default StoreItem
