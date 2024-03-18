@@ -5,7 +5,7 @@ import {CartContext} from "../context/CartContext";
 import { FaCameraRetro } from "react-icons/fa";
 import Modal from "./Modal";
 import { Canvas } from '@react-three/fiber'
-import { ContactShadows, Environment, OrbitControls } from '@react-three/drei'
+import { Environment, OrbitControls } from '@react-three/drei'
 import Apple from '../../public/Apple'
 
 const StoreItem=({
@@ -30,10 +30,7 @@ const StoreItem=({
 
   return (
     <div>
-
-
-
-<Modal open={open} onClose={() => setOpen(false)}>
+      <Modal open={open} onClose={() => setOpen(false)}>
         <div className="text-center w-56">
           <div className="mx-auto my-4 w-48">
           <img className="w-60 mx-auto rounded-lg h-40 object-cover" src={images} alt="" />

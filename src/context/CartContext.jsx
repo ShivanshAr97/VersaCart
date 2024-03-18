@@ -12,10 +12,6 @@ export function ShoppingCartProvider({ children }) {
   const [items, setItems] = useLocalStorage('items',[]);
   const [isOpen, setIsOpen] = useState(false);
 
-  function sort(){
-    return items.find((item) => item.id === id)?.quant || 0;
-  }
-
   function getItems(id) {
     return items.find((item) => item.id === id)?.quant || 0;
   }
