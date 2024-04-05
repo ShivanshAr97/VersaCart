@@ -44,11 +44,11 @@ export default function DataItems() {
     // });
     const availableProducts = data.filter(item => item.category.name=="Others");
     console.log(availableProducts);
-    setData(availableProducts)
+    // setData(availableProducts)
     // console.log(productNamesByPrice);
 
     // console.log(sortedData);
-  }, []);
+  }, [data]);
 
   return (
     <ul className='grid grid-cols-3 mx-5'>

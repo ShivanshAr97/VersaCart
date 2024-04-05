@@ -57,7 +57,7 @@ const Cart = ({ isOpen }) => {
         const { amount, id: order_id, currency } = result.data;
 
         const options = {
-            key: process.env.REACT_APP_KEY,
+            key: import.meta.env.VITE_KEY,
             amount: amount.toString(),
             currency: currency,
             name: "ShivanshAr97",
