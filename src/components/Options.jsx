@@ -1,5 +1,6 @@
 import React from 'react'
 import { useShoppingCart } from '../context/CartContext'
+import { useFilterCart } from '../context/FilterContext'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
 export default function Options() {

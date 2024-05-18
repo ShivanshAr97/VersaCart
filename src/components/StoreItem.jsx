@@ -2,6 +2,7 @@ import React, { useState,Suspense } from "react";
 import { CurrFormater } from "../utils/CurrFormater";
 import { useContext } from "react";
 import {CartContext} from "../context/CartContext";
+import { FilterContext } from "../context/FilterContext";
 import { FaCameraRetro } from "react-icons/fa";
 import Modal from "./Modal";
 import { Canvas } from '@react-three/fiber'
@@ -19,6 +20,7 @@ const StoreItem=({
   updatedAt,
 })=> {
   const {getItems, incItems, decItems, removeItems} = useContext(CartContext);
+  const {} = useContext(FilterContext)
 
   const quant = getItems(id);
 
