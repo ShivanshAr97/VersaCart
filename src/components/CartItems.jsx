@@ -14,7 +14,7 @@ const CartItems = ({ id, quant }) => {
   return (
     <div className=" my-4">
       <div className="flex">
-        <img className="w-32 h-32 rounded-lg object-cover" src={ite.images} alt="" />
+        <img className="w-32 h-32 rounded-lg object-cover" src={ite.image} alt="" />
         <div className="mx-4">
           {/* <div className="flex justify-around"> */}
           <span className="mr-4 font-bold">{ite.title}</span>

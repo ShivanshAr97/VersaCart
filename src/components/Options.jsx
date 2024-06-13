@@ -5,9 +5,17 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
 export default function Options() {
   return (
-    <div className='flex flex-col text-lg w-20 mr-6 -ml-4'>
+    <div className='flex flex-col text-lg'>
         <br />
         <p className='text-xl font-bold my-4'>Filters</p>
+
+        <p>Price</p>
+        <p>Brand</p>
+        <p>Color</p>
+        <p>Category</p>
+        <p>Size</p>
+        <p>Rating</p>
+
 
         <p className='my-1 font-semibold'>Sort</p>
         <div>

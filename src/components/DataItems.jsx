@@ -7,26 +7,28 @@ export default function DataItems() {
   useEffect(() => {
     setData(fileContent);
   }, [fileContent]);
-  useEffect(() => {
 
-    function searchItems(query) {
-      const filteredData = data.filter((item) => {
-        const titleMatch = item.title
-          .toLowerCase()
-          .includes(query.toLowerCase());
-        const descMatch = item.description
-          .toLowerCase()
-          .includes(query.toLowerCase());
-        return titleMatch || descMatch;
-      });
 
-      return filteredData;
-    }
-    const availableProducts = data.filter(
-      (item) => item.category.name == "Others"
-    );
-    console.log(availableProducts);
-  }, [data]);
+  // useEffect(() => {
+
+  //   function searchItems(query) {
+  //     const filteredData = data.filter((item) => {
+  //       const titleMatch = item.title
+  //         .toLowerCase()
+  //         .includes(query.toLowerCase());
+  //       const descMatch = item.description
+  //         .toLowerCase()
+  //         .includes(query.toLowerCase());
+  //       return titleMatch || descMatch;
+  //     });
+
+  //     return filteredData;
+  //   }
+  //   const availableProducts = data.filter(
+  //     (item) => item.category.name == "Others"
+  //   );
+  //   console.log(availableProducts);
+  // }, [data]);
 
   return (
     <ul className="grid grid-cols-3 mx-5">

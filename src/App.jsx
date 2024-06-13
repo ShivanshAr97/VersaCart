@@ -5,12 +5,13 @@ import { ShoppingCartProvider } from "./context/CartContext";
 
 function App() {
   return (
-    
     <ShoppingCartProvider>
-      <div className=" mx-12">
-        <Navbar/>
-        <div className="flex">
-          <Options/>
+      <Navbar />
+      <div className="grid grid-cols-5">
+        <div className="col-span-1 border">
+          <Options />
+        </div>
+        <div className="col-span-4">
           <DataItems />
         </div>
       </div>

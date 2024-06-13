@@ -5,7 +5,7 @@ import { CartContext } from "../context/CartContext";
 const Navbar = () => {
     const {openBar, itemsQuantity} = useContext(CartContext)
   return (
-    <div  className="bg-blue-400 -mx-12 flex justify-between items-center align-middle px-8">
+    <div  className="bg-blue-400 flex justify-between items-center align-middle px-8">
       <h1 className="font-bold text-lg">Navbar</h1>
       <div className="flex">
         <input className="px-2 my-3 mx-8 border outline-none rounded-md text-lg" type="text" placeholder="Search" name="" id="" />

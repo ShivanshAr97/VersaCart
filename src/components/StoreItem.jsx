@@ -11,13 +11,14 @@ import Apple from '../../public/Apple'
 
 const StoreItem=({
   id,
-  title,
+  color,
+  brand,
+  product,
   price,
-  description,
-  images,
-  creationAt,
+  desc,
   category,
-  updatedAt,
+  fullName,
+  image
 })=> {
   const {getItems, incItems, decItems, removeItems} = useContext(CartContext);
   const {} = useContext(FilterContext)
@@ -35,7 +36,7 @@ const StoreItem=({
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className="text-center w-56">
           <div className="mx-auto my-4 w-48">
-          <img className="w-60 mx-auto rounded-lg h-40 object-cover" src={images} alt="" />
+          <img className="w-60 mx-auto rounded-lg h-40 object-cover" src={image} alt="" />
             <p className="text-sm text-gray-500">
               Are you sure you want to delete this item?
             </p>
@@ -63,11 +64,11 @@ const StoreItem=({
       </Canvas>
   ):
       <button onClick={() => setOpen(true)}>
-        <img className="w-60 mx-auto rounded-lg h-40 object-cover" src={images} alt="" />
+        <img className="w-60 mx-auto rounded-lg h-40 object-cover" src={image} alt="" />
       </button>
         }
         <div className="flex justify-between my-2">
-          <span>{title}</span>
+          <span>{product}</span>
           <span>{CurrFormater(price)}</span>
         </div>
         {quant === 0 ? (
