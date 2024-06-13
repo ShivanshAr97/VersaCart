@@ -7,11 +7,11 @@ function App() {
   return (
     <ShoppingCartProvider>
       <Navbar />
-      <div className="grid grid-cols-5">
+      <div className="grid grid-cols-6">
         <div className="col-span-1 border">
           <Options />
         </div>
-        <div className="col-span-4">
+        <div className="col-span-5">
           <DataItems />
         </div>
       </div>

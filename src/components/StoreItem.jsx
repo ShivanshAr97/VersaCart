@@ -36,35 +36,57 @@ const StoreItem = ({
   return (
     <div>
       <Modal open={open} onClose={() => setOpen(false)}>
-      <button
-              className="btn btn-light w-full"
-              onClick={() => setOpen(false)}
-            >
-              Cancel
-            </button>
-        <div className="text-center w-[32rem]">
-          <div className="mx-auto my-4 w-48">
-            <img
-              className="w-60 mx-auto rounded-lg h-40 object-cover"
-              src={image}
-              alt=""
-            />
-            <div>
-              <h1>{product}</h1>
-              <p>{desc}</p>
-              <p>{brand}</p>
-              <p>{rating}</p>
-              <p>{color}</p>
-              <p>{size}</p>
-              <p>{price}</p>
-              <p>{category}</p>
-              <p>{fullName}</p>
+        <button className="btn btn-light w-full" onClick={() => setOpen(false)}>
+          Cancel
+        </button>
+        <div className=" w-[40rem]">
+          <div className=" flex my-4 gap-4">
+            <div className="text-sm">
+              <img
+                className="w-[15rem] mx-auto rounded-lg h-[10rem] object-cover"
+                src={image}
+                alt=""
+              />
+              <p className="border bg-gray-100 w-fit px-2 py-1 rounded-md  my-2 mx-4">
+                Brand: {brand}
+              </p>
+              <p className="border bg-gray-100 w-fit px-2 py-1 rounded-md mx-4">
+                Seller: {fullName}
+              </p>
             </div>
-            
+            <div className="border text-sm">
+              <h1 className="font-bold text-2xl">{product}</h1>
+              <p>{desc}</p>
+              <div className="grid grid-cols-3">
+                <p className="border bg-gray-100 w-fit px-2 py-1 rounded-md mx-4 my-2">
+                  Rating: {rating}*
+                </p>
+                <div className="flex gap-2 border bg-gray-100 w-fit my-2 px-2 py-1 rounded-md mx-4">
+                  <span className="capitalize">Color:</span>
+
+                  <p
+                    className="border rounded-full"
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      backgroundColor: `${color}`,
+                    }}
+                  ></p>
+                </div>
+
+                <p className="border my-2 bg-gray-100 w-fit px-2 py-1 rounded-md mx-4">
+                  Size: {size}
+                </p>
+                <p className="border my-2 bg-gray-100 w-fit px-2 py-1 rounded-md mx-4">
+                  Price: ₹{price}
+                </p>
+                <p className="border my-2 bg-gray-100 w-fit px-2 py-1 rounded-md mx-4">
+                  {category}
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="flex gap-4">
-            
-          </div>
+          <div className="flex gap-4"></div>
         </div>
       </Modal>
       <div className="relative">
@@ -80,14 +102,17 @@ const StoreItem = ({
         ) : (
           <button onClick={() => setOpen(true)}>
             <img
-              className="w-60 mx-auto rounded-lg h-40 object-cover"
+              className="w-60 mx-12 rounded-lg h-40 object-cover"
               src={image}
               alt=""
             />
           </button>
         )}
         <div className="flex justify-between my-2">
-          <span>{product}</span>
+          <div className="">
+            <span className="mx-2 font-semibold">{product}</span>
+            <span>({rating}*)</span>
+          </div>
           <span>{CurrFormater(price)}</span>
         </div>
         {quant === 0 ? (
