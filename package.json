@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@babel/traverse": "",
     "@faker-js/faker": "^8.4.1",
     "@react-three/drei": "^9.80.1",
     "@react-three/fiber": "^8.13.6",
     "axios": "^1.6.7",
+    "braces": "",
     "dotenv": "^16.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
